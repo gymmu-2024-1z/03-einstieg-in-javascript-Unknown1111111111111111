@@ -29,8 +29,14 @@ export function aufgabe01(args) {
     // damit wir nicht so viele Klammern schreiben müssen.
     const currentElement = input[i]
 
-    // Hier wird das aktuelle Zeichen ans Ende der Resultat-Liste angehängt.
-    result.push(currentElement)
+    if (currentElement === "e") {
+      //do nothing
+    } else if (currentElement === "E") {
+      // auch E ignorieren
+    } else {
+      // Hier wird das aktuelle Zeichen ans Ende der Resultat-Liste angehängt.
+      result.push(currentElement)
+    }
   }
 
   // Hier geben wir das Resultat zurück, und machen einen Text daraus.
@@ -38,3 +44,162 @@ export function aufgabe01(args) {
 }
 
 linkupExerciseHandler("[data-click=aufgabe01]", aufgabe01)
+
+export function aufgabe02(args) {
+  const input = args
+  const result = [] // Das ist die Resultatliste
+  // Läuft Zeichen für Zeichen über den ganzen Text
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    const upperCaseLetter = currentElement.toUpperCase()
+    // Hänge das aktuelle Zeichen doppelt an
+    result.push(upperCaseLetter)
+  }
+
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe02]", aufgabe02)
+
+export function aufgabe03(args) {
+  const input = args
+  const result = []
+
+  let count = 0
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === "e") {
+      // Kleine es zählen
+      count++
+    } else if (currentElement === "E") {
+      // Grosse es zählen
+      count++
+    }
+  }
+
+  return count
+}
+linkupExerciseHandler("[data-click=aufgabe03]", aufgabe03)
+
+export function aufgabe04(args) {
+  const input = args
+  const result = []
+
+  let count = 0
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === " ") {
+      // Alle Wörter zählen
+      count++
+    } else if (currentElement === " ") {
+      // Alle Wörter zählen
+      count++
+    }
+  }
+
+  return count + 1
+}
+linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
+
+export function aufgabe08(args) {
+  const input = args
+  const result = []
+
+  let count = 0
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === "e") {
+      // Ersetze alle e durch 3
+      result.push(3)
+    } else {
+      result.push(currentElement)
+    }
+  }
+  return result.join("")
+}
+linkupExerciseHandler("[data-click=aufgabe08]", aufgabe08)
+
+export function aufgabe05(args) {
+  const input = args
+  const result = []
+
+  let count = 0
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    const upperCaseLetter = currentElement.toUpperCase()
+    if (currentElement === "." || currentElement === " ") {
+    } else if (currentElement === upperCaseLetter) {
+      // Alle Grossbuchstaben zählen, falls mehr als 1, dann wahr
+      count++
+    }
+  }
+
+  if (count > 0) {
+    return true
+  } else {
+    return false
+  }
+}
+linkupExerciseHandler("[data-click=aufgabe05]", aufgabe05)
+
+export function aufgabe19(args) {
+  const input = args
+  const result = []
+
+  let count = 0
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    result.push(currentElement)
+    result.push(currentElement)
+  }
+
+  return result.join("")
+}
+linkupExerciseHandler("[data-click=aufgabe19]", aufgabe19)
+
+export function aufgabe06(args) {
+  const input = args
+  const result = []
+  let istSonderzeichen = false
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    const upperCaseLetter = currentElement.toUpperCase()
+
+    const lowerCase = upperCaseLetter.toLowerCase()
+    if (lowerCase === upperCaseLetter) {
+      istSonderzeichen = true
+    }
+  }
+  return istSonderzeichen
+}
+
+linkupExerciseHandler("[data-click=aufgabe06]", aufgabe06)
+
+export function aufgabe06(args) {
+  const input = args
+  const result = []
+  let istund = false
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    const upperCaseLetter = currentElement.toUpperCase()
+
+    const lowerCase = upperCaseLetter.toLowerCase()
+    if (lowerCase === upperCaseLetter) {
+      istSonderzeichen = true
+    }
+  }
+  return istSonderzeichen
+}
