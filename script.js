@@ -187,19 +187,68 @@ export function aufgabe06(args) {
 
 linkupExerciseHandler("[data-click=aufgabe06]", aufgabe06)
 
-export function aufgabe06(args) {
+export function aufgabe07(args) {
   const input = args
   const result = []
+
   let istund = false
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    const upperCaseLetter = currentElement.toUpperCase()
-
-    const lowerCase = upperCaseLetter.toLowerCase()
-    if (lowerCase === upperCaseLetter) {
-      istSonderzeichen = true
+    if (currentElement === "u" || currentElement === "U") {
+      const nextElement = input[i + 1]
+      if (nextElement === "n") {
+        const lastElement = input[i + 2]
+        if (lastElement === "d") {
+          istund = true
+        }
+      }
     }
   }
-  return istSonderzeichen
+  return istund
 }
+linkupExerciseHandler("[data-click=aufgabe07]", aufgabe07)
+
+export function aufgabe09(args) {
+  const input = args
+  const result = []
+
+  // Wenn das Input genau 6 Zeichen enthaltet gebe wahr zurück, sonst falsch
+  if (input.length === 6) {
+    return true
+  } else {
+    return false
+  }
+}
+
+linkupExerciseHandler("[data-click=aufgabe09]", aufgabe09)
+
+export function aufgabe10(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+  }
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe10]", aufgabe10)
+
+export function aufgabe12(args) {
+  const input = args
+  // Erstelle eine Variable, um die Position des ersten e s zu speichern
+  let position = -1
+  // -1 ist davor
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (currentElement === "e") {
+      position = i
+      // Wenn ein e gefunden wurde, gib Position zurück ( Funktion wird beendet)
+      return position
+    }
+  }
+  return -1
+}
+linkupExerciseHandler("[data-click=aufgabe12]", aufgabe12)
