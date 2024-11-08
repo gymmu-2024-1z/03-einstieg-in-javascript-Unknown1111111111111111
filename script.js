@@ -294,4 +294,47 @@ export function aufgabe14(args) {
 
 linkupExerciseHandler("[data-click=aufgabe14]", aufgabe14)
 
-export function aufgabe15(args) {}
+export function aufgabe15(args) {
+  const input = args
+  const result = []
+  let count = 0
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (currentElement === " ") {
+      // wenn man ein Leerzeichen gefunden hat, gib result zurück
+      return result.join("")
+    }
+
+    result.push(currentElement)
+  }
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe15]", aufgabe15)
+
+export function aufgabe16(args) {
+  const input = args
+  const result1 = []
+  const result2 = []
+  let dollarfound = false
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // Wenn du ein Dollar findest, dann setze Dollarfound auf wahr
+    if (currentElement === "$") {
+      dollarfound = true
+      continue
+    }
+    // Solange Dollerfound falsch ist, hänge an Result1
+    if (dollarfound === false) {
+      result1.push(currentElement)
+    } else {
+      result2.push(currentElement)
+    }
+  }
+
+  return [result1.join(""), result2.join("")]
+}
+
+linkupExerciseHandler("[data-click=aufgabe16]", aufgabe16)
