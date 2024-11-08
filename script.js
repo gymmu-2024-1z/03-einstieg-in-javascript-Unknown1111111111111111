@@ -228,9 +228,13 @@ export function aufgabe10(args) {
   const result = []
 
   for (let i = 0; i < input.length; i++) {
-    const currentElement = input[i]
+    // Teste, ob die Eingabe ein korrekter RGB Hexcode ist
+    if (input[i] === "#") {
+      return true
+    } else {
+      return false
+    }
   }
-  return result.join("")
 }
 
 linkupExerciseHandler("[data-click=aufgabe10]", aufgabe10)
@@ -252,3 +256,42 @@ export function aufgabe12(args) {
   return -1
 }
 linkupExerciseHandler("[data-click=aufgabe12]", aufgabe12)
+
+export function aufgabe13(args) {
+  const input = args
+  // Erstelle eine Variable, um die Position des letzten e s zu speichern
+  let position = -1
+  // -1 ist davor
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (currentElement === "e") {
+      position = i
+      // Wenn ein e gefunden wurde, gib Position zurück ( Funktion wird beendet)
+    }
+  }
+  return position
+}
+linkupExerciseHandler("[data-click=aufgabe13]", aufgabe13)
+
+export function aufgabe14(args) {
+  const input = args
+  const result = []
+  let count = 0
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (currentElement === "e" || currentElement === "E") {
+      count = count + 1
+      // Wenn Count genau 3 ist, dann speichere die Position
+
+      if (count === 3) {
+        return i
+      }
+    }
+  }
+  return -1
+}
+
+linkupExerciseHandler("[data-click=aufgabe14]", aufgabe14)
+
+export function aufgabe15(args) {}
