@@ -239,6 +239,20 @@ export function aufgabe10(args) {
 
 linkupExerciseHandler("[data-click=aufgabe10]", aufgabe10)
 
+export function aufgabe11(args) {
+  const input = args
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // speichere mir den ASCII wert vom aktuellen zeichen
+    const ascii = currentElement.charCodeAt(0)
+    // Gib diesen ASCII wert zurück und breche die Funktion ab
+    return ascii
+  }
+  return null
+}
+linkupExerciseHandler("[data-click=aufgabe11]", aufgabe11)
+
 export function aufgabe12(args) {
   const input = args
   // Erstelle eine Variable, um die Position des ersten e s zu speichern
@@ -338,3 +352,23 @@ export function aufgabe16(args) {
 }
 
 linkupExerciseHandler("[data-click=aufgabe16]", aufgabe16)
+
+export function aufgabe20(args) {
+  const input = args
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // specihere das nächste element
+    const nextElement = input[i + 1]
+    // Prüfe ob currentElement ein punkt ist
+    if (currentElement === ".") {
+      // prüfe ob das nextElement ein leerzeichen ist
+      if (nextElement === " ") {
+      } else {
+        return false
+      }
+    }
+  }
+  return true
+}
+linkupExerciseHandler("[data-click=aufgabe20]", aufgabe20)
