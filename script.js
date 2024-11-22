@@ -355,16 +355,20 @@ linkupExerciseHandler("[data-click=aufgabe16]", aufgabe16)
 
 export function aufgabe20(args) {
   const input = args
+  const result = []
 
+  //Prüfe, ob nach jedem "." ein Leerschlag kommt
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    // specihere das nächste element
-    const nextElement = input[i + 1]
-    // Prüfe ob currentElement ein punkt ist
     if (currentElement === ".") {
-      // prüfe ob das nextElement ein leerzeichen ist
+      // Prüfe ob das nächste Zeichen ein Leerzeichen ist
+      const nextElement = input[i + 1]
+      // prüfe ob nextElement ein Leerzeichen ist
       if (nextElement === " ") {
-      } else {
+        // Nichts unternehmen
+      }
+      // Nichts unternehmen
+      else {
         return false
       }
     }
@@ -372,3 +376,57 @@ export function aufgabe20(args) {
   return true
 }
 linkupExerciseHandler("[data-click=aufgabe20]", aufgabe20)
+
+export function aufgabe21(args) {
+  const input = args
+  const result = []
+  // Kehr die Eingabe um
+  for (let i = input.length - 1; i >= 0; i--) {
+    const currentElement = input[i]
+    result.push(currentElement)
+  }
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe21]", aufgabe21)
+
+export function aufgabe22(args) {
+  const input = args
+  const result = []
+  let foundk = false
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === "k") {
+      foundk = true
+    }
+
+    if (foundk === false) {
+      result.push("_")
+    } else {
+      result.push(currentElement)
+    }
+  }
+
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe22]", aufgabe22)
+
+export function aufgabe24(args) {
+  const input = args
+  if (input.length <= 1) {
+    return input // Wenn die Eingabe nur ein Zeichen oder leer ist, bleibt sie unverändert
+  }
+  const firstChar = input.charAt(0)
+  const lastChar = input.charAt(input.length - 1)
+
+  // Den Rest der Zeichenkette ohne das erste und letzte Zeichen
+  const middlePart = input.slice(1, -1)
+
+  // Die neue Zeichenkette zusammensetzen
+  return lastChar + middlePart + firstChar
+}
+
+linkupExerciseHandler('[data-click="aufgabe24]', aufgabe24)
