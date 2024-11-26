@@ -416,17 +416,39 @@ linkupExerciseHandler("[data-click=aufgabe22]", aufgabe22)
 
 export function aufgabe24(args) {
   const input = args
-  if (input.length <= 1) {
-    return input // Wenn die Eingabe nur ein Zeichen oder leer ist, bleibt sie unverändert
+  const result = []
+  // Speicher das erste Zeichen
+  const firstElement = input[0]
+  // Speicher das letzte Zeichen
+  const lastElement = input[input.length - 1]
+
+  result.push(lastElement)
+
+  for (let i = 1; i < input.length - 1; i++) {
+    const currentElement = input[i]
+    result.push(currentElement)
   }
-  const firstChar = input.charAt(0)
-  const lastChar = input.charAt(input.length - 1)
+  result.push(firstElement)
 
-  // Den Rest der Zeichenkette ohne das erste und letzte Zeichen
-  const middlePart = input.slice(1, -1)
+  return result.join("")
+}
+linkupExerciseHandler('[data-click="aufgabe24]', aufgabe24)
 
-  // Die neue Zeichenkette zusammensetzen
-  return lastChar + middlePart + firstChar
+export function aufgabe23(args) {
+  const input = args
+  const result = [] // Leere Liste, in der wir das Resultat anhängen
+  const firstElement = input[0]
+
+  // Hänge firstelement an die Liste
+  result.push(firstElement)
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    result.push(currentElement)
+  }
+
+  result.push(firstElement) // Hange das erste Zeichen am Ende an
+  return result.join("")
 }
 
-linkupExerciseHandler('[data-click="aufgabe24]', aufgabe24)
+linkupExerciseHandler('[data-click="aufgabe23]', aufgabe23)
