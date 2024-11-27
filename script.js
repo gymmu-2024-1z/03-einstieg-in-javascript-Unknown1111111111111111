@@ -417,9 +417,9 @@ linkupExerciseHandler("[data-click=aufgabe22]", aufgabe22)
 export function aufgabe24(args) {
   const input = args
   const result = []
-  // Speicher das erste Zeichen
+  // Vertausche das erste Zeichen
   const firstElement = input[0]
-  // Speicher das letzte Zeichen
+  // Vertausche das letzte Zeichen
   const lastElement = input[input.length - 1]
 
   result.push(lastElement)
@@ -432,7 +432,7 @@ export function aufgabe24(args) {
 
   return result.join("")
 }
-linkupExerciseHandler('[data-click="aufgabe24]', aufgabe24)
+linkupExerciseHandler("[data-click=aufgabe24]", aufgabe24)
 
 export function aufgabe23(args) {
   const input = args
@@ -451,4 +451,25 @@ export function aufgabe23(args) {
   return result.join("")
 }
 
-linkupExerciseHandler('[data-click="aufgabe23]', aufgabe23)
+linkupExerciseHandler("[data-click=aufgabe23]", aufgabe23)
+
+export function aufgabe25(args) {
+  const input = args
+  const result = []
+  // Lösche das Zeichen, welches in der Mitte des des Textes steht
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (i === Math.floor(input.length / 2)) {
+      // do nothing
+    } else {
+      result.push(currentElement)
+    }
+  }
+  return result.join("")
+}
+linkupExerciseHandler("[data-click=aufgabe25]", aufgabe25)
+
+export function aufgabe26(args) {
+  const input = args
+  const result = []
