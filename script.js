@@ -473,3 +473,24 @@ linkupExerciseHandler("[data-click=aufgabe25]", aufgabe25)
 export function aufgabe26(args) {
   const input = args
   const result = []
+
+  const firstElement = input[0]
+  const nextElement = input[1]
+  // wenn der ascii wert von nextElement kleiner ist, dann vertausche die Elemente
+
+  if (nextElement.charCodeAt(0) < nextElement.charCodeAt(0)) {
+    result.push(nextElement)
+    result.push(firstElement)
+  } else {
+    result.push(firstElement)
+    result.push(nextElement)
+  }
+
+  for (let i = 2; i < input.length; i++) {
+    const currentElement = input[i]
+    result.push(currentElement)
+  }
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe26]", aufgabe26)
