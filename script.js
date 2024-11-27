@@ -510,3 +510,30 @@ export function aufgabe27(args) {
   }
 }
 linkupExerciseHandler("[data-click=aufgabe27]", aufgabe27)
+
+export function aufgabe28(args) {
+  const input = args
+  const num1 = []
+  const num2 = []
+
+  let firstNum = true
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    const ascii = currentElement.charCodeAt(0)
+    if (ascii >= 48 && ascii <= 57) {
+      if (firstNum === true) {
+        num1.push(currentElement)
+      } else {
+        num2.push(currentElement)
+      }
+    } else if (currentElement === " ") {
+      firstNum = false
+    } else {
+      return false
+    }
+  }
+
+  return parseInt(num1.join("")) + parseInt(num2.join(""))
+}
+linkupExerciseHandler("[data-click=aufgabe28]", aufgabe28)
