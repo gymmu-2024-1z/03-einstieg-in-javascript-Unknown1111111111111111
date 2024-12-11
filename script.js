@@ -175,7 +175,7 @@ export function aufgabe06(args) {
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    const upperCaseLetter = currentElement.toUpperCase()
+    const upperCaseLetter = currentElement.toUpperCase() // testet, ob in einem Text mindestens ein Sonderzeichen vorkommt.
 
     const lowerCase = upperCaseLetter.toLowerCase()
     if (lowerCase === upperCaseLetter) {
@@ -213,11 +213,11 @@ export function aufgabe09(args) {
   const input = args
   const result = []
 
-  // Wenn das Input genau 6 Zeichen enthaltet gebe wahr zurück, sonst falsch
+  // Wenn das Input genau 6 Zeichen enthaltet
   if (input.length === 6) {
-    return true
+    return true //gebe wahr zurück
   } else {
-    return false
+    return false //sonst falsch
   }
 }
 
@@ -230,9 +230,9 @@ export function aufgabe10(args) {
   for (let i = 0; i < input.length; i++) {
     // Teste, ob die Eingabe ein korrekter RGB Hexcode ist
     if (input[i] === "#") {
-      return true
+      return true // falls ja, dann - true
     } else {
-      return false
+      return false // falls nicht, dann - false
     }
   }
 }
@@ -489,13 +489,14 @@ export function aufgabe26(args) {
   for (let i = 2; i < input.length; i++) {
     const currentElement = input[i]
     result.push(currentElement)
-  }
+  } // Eingaben alphanumerisch sortieren
   return result.join("")
 }
 
 linkupExerciseHandler("[data-click=aufgabe26]", aufgabe26)
 
 export function aufgabe27(args) {
+  // teste, ob eine Eingabe eine Zahl ist.
   const input = args
   const result = []
 
@@ -503,7 +504,7 @@ export function aufgabe27(args) {
     const currentElement = input[i]
     const ascii = currentElement.charCodeAt(0)
     if (ascii >= 48 && ascii <= 57) {
-      return true
+      return true // falls ja geben Sie die Summe als Ausgabe aus; sonst Fehlermeldung
     } else {
       return false
     }
@@ -516,7 +517,7 @@ export function aufgabe28(args) {
   const num1 = []
   const num2 = []
 
-  let firstNum = true
+  let firstNum = true //testen Sie, ob in der Eingabe 2 Zahlen von einem Leerzeichen getrennt sind
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
@@ -530,10 +531,182 @@ export function aufgabe28(args) {
     } else if (currentElement === " ") {
       firstNum = false
     } else {
-      return false
+      return false // falls ja geben Sie die Summe als Ausgabe aus; sonst Fehlermeldung
     }
   }
 
   return parseInt(num1.join("")) + parseInt(num2.join(""))
 }
 linkupExerciseHandler("[data-click=aufgabe28]", aufgabe28)
+
+// Ersetze alle e durch 1000000000 - Eigene Aufgabe
+export function aufgabe29(args) {
+  const input = args
+  const result = []
+
+  let count = 0
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === "e") {
+      // Ersetze alle e durch 1000000000
+      result.push(1000000000)
+    } else {
+      result.push(currentElement)
+    }
+  }
+  return result.join("")
+}
+linkupExerciseHandler("[data-click=aufgabe29]", aufgabe29)
+
+// Zähle alle i im Text
+export function aufgabe30(args) {
+  const input = args
+  const result = []
+
+  let count = 0
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === "i") {
+      // Kleine i zählen
+      count++
+    } else if (currentElement === "I") {
+      // Grosse I zählen
+      count++
+    }
+  }
+
+  return count
+}
+linkupExerciseHandler("[data-click=aufgabe30]", aufgabe30)
+
+export function aufgabe31(args) {
+  const input = args
+  const result = []
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === "t") {
+      //do nothing
+    } else if (currentElement === "T") {
+      // auch T ignorieren
+    } else {
+      result.push(currentElement)
+    }
+  }
+
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe31]", aufgabe31)
+
+export function aufgabe32(args) {
+  const input = args
+  // Erstelle eine Variable, um die Position des ersten e s zu speichern
+  let position = -1
+  // -1 ist davor
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (currentElement === "i") {
+      position = i
+      // Wenn ein e gefunden wurde, gib Position zurück ( Funktion wird beendet)
+      return position
+    }
+  }
+  return -1
+}
+linkupExerciseHandler("[data-click=aufgabe32]", aufgabe32)
+
+export function aufgabe33(args) {
+  const input = args
+  const result = []
+  let foundk = false
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === "t") {
+      foundk = true
+    }
+
+    if (foundk === false) {
+      result.push("%")
+    } else {
+      result.push(currentElement)
+    }
+  }
+
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe33]", aufgabe33)
+
+export function aufgabe34(args) {
+  const input = args
+  const result = []
+
+  let count = 0
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    result.push(currentElement)
+    result.push(currentElement)
+    result.push(currentElement)
+    result.push(currentElement)
+    result.push(currentElement)
+    result.push(currentElement)
+    result.push(currentElement)
+  }
+
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe34]", aufgabe34)
+
+export function aufgabe35(args) {
+  const input = args
+  const result = []
+  let foundk = false
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === "i") {
+      foundk = true
+    }
+
+    if (foundk === false) {
+      result.push("Apple")
+    } else {
+      result.push(currentElement)
+    }
+  }
+
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe35]", aufgabe35)
+
+export function Bubblesort(args) {
+  const text = args
+  const list = text.split("") // Damit wandeln wir den Text in eine Liste um, das brauchen wir wenn wir Elemente vertauschen möchten.
+  for (let i = 0; i < list.length - 1; i++) {
+    const currentElement = list[i]
+    const nextElement = list[i + 1]
+    if (currentElement.charCodeAt(0) > nextElement.charCodeAt(0)) {
+      // Reihenfolge stimmt nicht, Elemente müssen getauscht werden.
+      const tmp = list[i + 1]
+      list[i + 1] = list[i]
+      list[i] = tmp
+      i = -1 // starte von vorne wenn etwas vertauscht wurde.
+    }
+  }
+  const result = list.join("")
+  return result
+}
+linkupExerciseHandler("[data-click=Bubblesort]", Bubblesort)
