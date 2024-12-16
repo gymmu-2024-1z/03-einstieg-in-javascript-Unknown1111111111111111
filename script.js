@@ -694,7 +694,7 @@ linkupExerciseHandler("[data-click=aufgabe35]", aufgabe35)
 
 export function Bubblesort(args) {
   const text = args
-  const list = text.split("") // Damit wandeln wir den Text in eine Liste um, das brauchen wir wenn wir Elemente vertauschen möchten.
+  const list = text.split("") // Damit wandeln wir den Text in eine Liste um,
   for (let i = 0; i < list.length - 1; i++) {
     const currentElement = list[i]
     const nextElement = list[i + 1]
@@ -710,3 +710,21 @@ export function Bubblesort(args) {
   return result
 }
 linkupExerciseHandler("[data-click=Bubblesort]", Bubblesort)
+
+export function SelectionSort(array) {
+  for (let i = 0; i < array.length; i++) {
+    let lowestValue = array[i]
+    let indexOfLowestValue = i
+    for (let j = i; j < array.length; j++) {
+      if (array[j] < lowestValue) {
+        lowestValue = array[j]
+        indexOfLowestValue = j
+      }
+    }
+    let temp = array[i]
+    array[i] = array[indexOfLowestValue]
+    array[indexOfLowestValue] = temp
+  }
+  return array
+}
+linkupExerciseHandler('[data-click="SelectionSort]', "SelectionSort")
