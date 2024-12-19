@@ -87,26 +87,51 @@ export function aufgabe03(args) {
 linkupExerciseHandler("[data-click=aufgabe03]", aufgabe03)
 
 export function aufgabe04(args) {
-  // Die Anzahl wörter sollte angegeben werden
   const input = args
   const result = []
-
-  let count = 0
-
+  //Wir filtern die Eingabe so, dass nur noch Buchstaben und Leerzeichen übrig bleiben
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
+    const ascii = currentElement.charCodeAt(0)
 
-    if (currentElement === " ") {
-      // Alle Wörter zählen
-      count++
-    } else if (currentElement === " ") {
-      // Alle Wörter zählen
-      count++
+    if (ascii >= 65 && ascii <= 90) {
+      //Grossbuchstabe
+      result.push(currentElement)
+    } else if (ascii >= 97 && ascii <= 122) {
+      // Kleinbuchstabe
+      result.push(currentElement)
+    } else if (ascii === 32) {
+      // Leerzeichen
+      result.push(currentElement)
     }
   }
 
+  //Jetzt können wir noch mehrere Leerzeichen am Stück haben, die müssen wir
+  //noch filtern
+
+  const result2 = []
+  for (let i = 0; i < result.length; i++) {
+    const currentElement = result[i]
+    const nextElement = result[i + 1]
+
+    if (currentElement === " " && nextElement === " ") {
+      //hier sind 2 Leerzeichen hintereinadner , wir ignorieren das erste
+    } else {
+      result2.push(currentElement)
+    }
+  }
+  //Jetzt könne wir die Leerzeichen zählen
+  let count = 0
+  for (let i = 0; i < result.length; i++) {
+    const currentElement = result2[i]
+    if (currentElement === " ") {
+      count = count + 1
+    }
+  }
+  //Da es ein Wort mehr wie Leerzeichen gibt, geben wir Leerzeichen+1 zurück
   return count + 1
 }
+
 linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
 
 export function aufgabe08(args) {
@@ -131,30 +156,6 @@ export function aufgabe08(args) {
 }
 linkupExerciseHandler("[data-click=aufgabe08]", aufgabe08)
 
-export function aufgabe05(args) {
-  const input = args
-  const result = []
-
-  let count = 0
-
-  for (let i = 0; i < input.length; i++) {
-    const currentElement = input[i]
-    const upperCaseLetter = currentElement.toUpperCase()
-    if (currentElement === "." || currentElement === " ") {
-    } else if (currentElement === upperCaseLetter) {
-      // Alle Grossbuchstaben zählen, falls mehr als 1, dann wahr
-      count++
-    }
-  }
-
-  if (count > 0) {
-    return true
-  } else {
-    return false // Falls nicht wahr, dann false
-  }
-}
-linkupExerciseHandler("[data-click=aufgabe05]", aufgabe05)
-
 export function aufgabe19(args) {
   const input = args
   const result = []
@@ -172,47 +173,59 @@ export function aufgabe19(args) {
 }
 linkupExerciseHandler("[data-click=aufgabe19]", aufgabe19)
 
+export function aufgabe05(args) {
+  return /[A-Z]/.test(args) //üperfrüfe ob mindestens ein Großbuchstabe vorhanden ist
+
+  //Von KI gelöst
+}
+
+linkupExerciseHandler("[data-click=aufgabe05]", aufgabe05)
+
 export function aufgabe06(args) {
   const input = args
+
   const result = []
-  let istSonderzeichen = false
+
+  let hasSonderzeichen = false //sagt das es keine Sonderzeichen gibt, um später zu testen, ob es doch Sonderzeichen gibt
+
+  // Schreibe eine Funktion, die testet ob ein Sonderzeichen vorkommt
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    const upperCaseLetter = currentElement.toUpperCase() // Testet, ob in einem Text mindestens ein Sonderzeichen vorkommt.
 
-    const lowerCase = upperCaseLetter.toLowerCase()
-    if (lowerCase === upperCaseLetter) {
-      istSonderzeichen = true // Sonderzeichen anwesend, dann true
+    const ascii = currentElement.charCodeAt(0)
+
+    if (ascii >= 33 && ascii <= 47) {
+      hasSonderzeichen = true // Wenn ein Sonderzeichen gefunden wird, wird hasSonderzeichen auf true gesetzt
     }
   }
-  return istSonderzeichen
-}
 
+  return hasSonderzeichen //Sagt ob Sonderzeichen vorhanden sind
+}
 linkupExerciseHandler("[data-click=aufgabe06]", aufgabe06)
 
 export function aufgabe07(args) {
   const input = args
+
   const result = []
 
-  let istund = false
+  //Sollte das Wort 'und' erkennen
 
   for (let i = 0; i < input.length; i++) {
-    // Hier wird geprüft, ob die Buchstaben von und, also u, n & d im text enthalten sind
     const currentElement = input[i]
-    if (currentElement === "u" || currentElement === "U") {
-      const nextElement = input[i + 1]
-      if (nextElement === "n") {
-        const lastElement = input[i + 2]
-        if (lastElement === "d") {
-          // Sie sollten auch in der Ordnung u n d gehalten werden, dann true
-          istund = true
+
+    if (currentElement === "u") {
+      if (input[i + 1] === "n") {
+        if (input[i + 2] === "d") {
+          return true //gibt true zurück, wenn das Wort erhalten ist
         }
       }
     }
   }
-  return istund
+
+  return false // gibt false zuück wenn das Wort nicht erhalten ist
 }
+
 linkupExerciseHandler("[data-click=aufgabe07]", aufgabe07)
 
 export function aufgabe09(args) {
@@ -248,17 +261,23 @@ linkupExerciseHandler("[data-click=aufgabe10]", aufgabe10)
 export function aufgabe11(args) {
   const input = args
 
-  for (let i = 0; i < input.length; i++) {
-    const currentElement = input[i]
-    // Speichere mir den ASCII wert vom aktuellen zeichen
-    const ascii = currentElement.charCodeAt(0)
-    // Gib diesen ASCII wert zurück und breche die Funktion ab
-    return ascii
+  //erstelle ein Variable um den ASCII-Code zu speichern.
+  let asciiCode = 0
+
+  // Speichere den ASCII-Code vom ersten Zeichen
+  asciiCode = input.charCodeAt(0)
+
+  //Sollte 'null' zurückgeben wenn mehr wie ein Zeichen gegeben sind
+  if (input.length > 1) {
+    return null
+
+    //Sollte 'null' zurückgeben wenn keine Eingabe gegeben ist.
+  } else if (input.length === 0) {
+    return null
   }
-  return null
+  return asciiCode
 }
 linkupExerciseHandler("[data-click=aufgabe11]", aufgabe11)
-
 export function aufgabe12(args) {
   const input = args
   // Erstelle eine Variable, um die Position des ersten e s zu speichern
@@ -296,23 +315,19 @@ linkupExerciseHandler("[data-click=aufgabe13]", aufgabe13)
 
 export function aufgabe14(args) {
   const input = args
-  const result = []
   let count = 0
-  for (let i = 0; i < input.length; i++) {
-    const currentElement = input[i]
-    if (currentElement === "e" || currentElement === "E") {
-      // Suche die position des dritten es
-      count = count + 1
-      // Wenn Count genau 3 ist, dann speichere die Position
 
-      if (count === 3) {
-        return i
-      }
+  // Suche die Postition des dritten "e"s
+  for (let i = 0; i < input.length; i++) {
+    if (input[i] === "e") {
+      count++
+    }
+    if (count === 3) {
+      return i
     }
   }
-  return -1
+  return -1 //gibt -1 an, wenn dort weniger als 3 e's sind
 }
-
 linkupExerciseHandler("[data-click=aufgabe14]", aufgabe14)
 
 export function aufgabe15(args) {
@@ -336,27 +351,16 @@ linkupExerciseHandler("[data-click=aufgabe15]", aufgabe15)
 
 export function aufgabe16(args) {
   const input = args
-  const result1 = []
-  const result2 = []
-  let dollarfound = false
-
+  const result = []
+  //Die Eingabe bis zum Zeichen '$' als ersten Teil einer Liste einlesen und den Rest als den zweiten Teil.
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    // Wenn du ein Dollar-Zeichen findest, dann setze Dollarfound auf wahr
     if (currentElement === "$") {
-      dollarfound = true
-      continue
+      break
     }
-    // Solange Dollerfound falsch ist, hänge an Result1
-    if (dollarfound === false) {
-      result1.push(currentElement)
-    } else {
-      result2.push(currentElement)
-    } // Ersetze das Dollazeichen, mit einem Komma
-    // Dass den Text in 2 teile einteilt, vor dem Kommazeichen und nach dem Kommazeichen
+    result.push(currentElement)
   }
-
-  return [result1.join(""), result2.join("")]
+  return result.join("")
 }
 
 linkupExerciseHandler("[data-click=aufgabe16]", aufgabe16)
@@ -758,20 +762,30 @@ export function Bubblesort(args) {
 }
 linkupExerciseHandler("[data-click=Bubblesort]", Bubblesort)
 
-export function SelectionSort(array) {
-  for (let i = 0; i < array.length; i++) {
-    let lowestValue = array[i]
-    let indexOfLowestValue = i
-    for (let j = i; j < array.length; j++) {
-      if (array[j] < lowestValue) {
-        lowestValue = array[j]
-        indexOfLowestValue = j
+export function Selectionsort(args) {
+  const input = args.split("")
+  const result = []
+  let n = input.length
+  for (let i = 0; i < n - 1; i++) {
+    // Assume the current position holds
+    // the minimum element
+    let min_idx = i
+
+    // Iterate through the unsorted portion
+    // to find the actual minimum
+    for (let j = i + 1; j < n; j++) {
+      if (input[j] < input[min_idx]) {
+        // Update min_idx if a smaller element is found
+        min_idx = j
       }
     }
-    let temp = array[i]
-    array[i] = array[indexOfLowestValue]
-    array[indexOfLowestValue] = temp
+
+    // Move minimum element to its
+    // correct position
+    let temp = input[i]
+    input[i] = input[min_idx]
+    input[min_idx] = temp
   }
-  return array
+  return input
 }
-linkupExerciseHandler('[data-click="SelectionSort]', "SelectionSort")
+linkupExerciseHandler("[data-click=Selectionsort]", Selectionsort)
