@@ -789,3 +789,5 @@ export function Selectionsort(args) {
   return input
 }
 linkupExerciseHandler("[data-click=Selectionsort]", Selectionsort)
+
+linkupExerciseHandler('[data-click="radixSort"]', radixSort)
