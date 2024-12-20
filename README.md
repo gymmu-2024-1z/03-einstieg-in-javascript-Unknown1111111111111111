@@ -1,3 +1,5 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/SYYUWTQg)
+
 # Einstieg ins Programmieren mit Javascript
 
 Dieses Projekt bietet viele Aufgaben mit automatischen Tests, bei denen Sie das
@@ -148,3 +150,34 @@ Testen sie, ob eine Eingabe eine Zahl ist.
 
 Testen Sie, ob in der Eingabe 2 Zahlen von einem Leerzeichen getrennt sind.
 Falls ja geben Sie die Summe als Ausgabe aus; sonst Fehlermeldung.
+
+## Aufgabe 29
+
+Ersetze alle `e`s mit einer `10000000`.
+
+## Aufgabe 30
+
+Zähle alle i im Text.
+
+## Aufgabe 31
+
+Lösche alle t im Text
+
+## Aufgabe 32
+
+Suche die Position des ersten i
+
+## Aufgabe 33
+
+Es sollen alle Zeichen aus der Eingabe mit % ersetzt werden, bis zum ersten t.
+
+## Aufgabe 34
+
+Jedes Zeichen in der Eingabe soll versiebtfach werden.
+
+## Aufgabe 35
+
+Es sollen alle Zeichen aus der Eingabe mit Apple ersetzt werden, bis zum ersten
+i.
+
+## Sortierverfahren - Erklärungen

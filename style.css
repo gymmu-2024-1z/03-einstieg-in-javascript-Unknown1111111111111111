@@ -118,3 +118,7 @@ button {
 #mocha-stats .progress {
   color: var(--fg-color);
 }
+
+.sort-section {
+  margin: 0 30px;
+}
