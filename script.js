@@ -65,10 +65,12 @@ export function aufgabe02(args) {
 linkupExerciseHandler("[data-click=aufgabe02]", aufgabe02)
 
 export function aufgabe03(args) {
+  // Wir speichern hier den Wert von args in der Variable `input` ab. Damit soll für uns klarer werden, womit wir arbeiten.
   const input = args
+  // Wir erzeugen hier eine leere Liste, in der wir das Resultat Stück für Stück anhängen.
   const result = []
 
-  let count = 0
+  let count = 0 // Ab 0 zählen
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
@@ -681,7 +683,7 @@ export function aufgabe33(args) {
     }
 
     if (foundk === false) {
-      result.push("%")
+      result.push("%") // ersetzte durch %
     } else {
       result.push(currentElement)
     }
