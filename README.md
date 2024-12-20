@@ -179,3 +179,5 @@ Jedes Zeichen in der Eingabe soll versiebtfach werden.
 
 Es sollen alle Zeichen aus der Eingabe mit Apple ersetzt werden, bis zum ersten
 i.
+
+## Sortierverfahren - Erklärungen

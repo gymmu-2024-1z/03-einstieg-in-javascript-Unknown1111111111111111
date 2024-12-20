@@ -640,7 +640,7 @@ export function aufgabe31(args) {
     if (currentElement === "t") {
       // alle ts löschen
     } else if (currentElement === "T") {
-      // auch gross T ignorieren
+      // auch gross Ts ignorieren
     } else {
       result.push(currentElement)
     }
