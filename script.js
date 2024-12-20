@@ -106,8 +106,7 @@ export function aufgabe04(args) {
     }
   }
 
-  //Jetzt können wir noch mehrere Leerzeichen am Stück haben, die müssen wir
-  //noch filtern
+  //Jetzt kann man noch mehrere Leerzeichen am Stück haben, die muss man noch filtern
 
   const result2 = []
   for (let i = 0; i < result.length; i++) {
@@ -115,12 +114,12 @@ export function aufgabe04(args) {
     const nextElement = result[i + 1]
 
     if (currentElement === " " && nextElement === " ") {
-      //hier sind 2 Leerzeichen hintereinadner , wir ignorieren das erste
+      //Hier sind 2 Leerzeichen hintereinadner , wir ignorieren das erste
     } else {
       result2.push(currentElement)
     }
   }
-  //Jetzt könne wir die Leerzeichen zählen
+  //Jetzt kann man die anzahl der Leerzeichen berechnen
   let count = 0
   for (let i = 0; i < result.length; i++) {
     const currentElement = result2[i]
@@ -128,7 +127,7 @@ export function aufgabe04(args) {
       count = count + 1
     }
   }
-  //Da es ein Wort mehr wie Leerzeichen gibt, geben wir Leerzeichen+1 zurück
+  //Da es ein Wort mehr wie Leerzeichen gibt, gebe Leerzeichen+1 zurück
   return count + 1
 }
 
@@ -174,9 +173,7 @@ export function aufgabe19(args) {
 linkupExerciseHandler("[data-click=aufgabe19]", aufgabe19)
 
 export function aufgabe05(args) {
-  return /[A-Z]/.test(args) //üperfrüfe ob mindestens ein Großbuchstabe vorhanden ist
-
-  //Von KI gelöst
+  return /[A-Z]/.test(args) //Üperfrüfe ob mindestens ein Großbuchstabe vorhanden ist
 }
 
 linkupExerciseHandler("[data-click=aufgabe05]", aufgabe05)
@@ -186,7 +183,7 @@ export function aufgabe06(args) {
 
   const result = []
 
-  let hasSonderzeichen = false //sagt das es keine Sonderzeichen gibt, um später zu testen, ob es doch Sonderzeichen gibt
+  let hasSonderzeichen = false //Sagt das es keine Sonderzeichen gibt, um später zu testen, ob es doch Sonderzeichen gibt
 
   // Schreibe eine Funktion, die testet ob ein Sonderzeichen vorkommt
 
@@ -196,11 +193,11 @@ export function aufgabe06(args) {
     const ascii = currentElement.charCodeAt(0)
 
     if (ascii >= 33 && ascii <= 47) {
-      hasSonderzeichen = true // Wenn ein Sonderzeichen gefunden wird, wird hasSonderzeichen auf true gesetzt
+      hasSonderzeichen = true // Wenn ein Sonderzeichen gefunden wird, wird das Sonderzeichen auf true gesetzt
     }
   }
 
-  return hasSonderzeichen //Sagt ob Sonderzeichen vorhanden sind
+  return hasSonderzeichen //Angabe ob Sonderzeichen vorhanden sind
 }
 linkupExerciseHandler("[data-click=aufgabe06]", aufgabe06)
 
@@ -217,13 +214,13 @@ export function aufgabe07(args) {
     if (currentElement === "u") {
       if (input[i + 1] === "n") {
         if (input[i + 2] === "d") {
-          return true //gibt true zurück, wenn das Wort erhalten ist
+          return true //Gibt true zurück, wenn das Wort erhalten ist
         }
       }
     }
   }
 
-  return false // gibt false zuück wenn das Wort nicht erhalten ist
+  return false // Gibt false zuück wenn das Wort nicht erhalten ist
 }
 
 linkupExerciseHandler("[data-click=aufgabe07]", aufgabe07)
@@ -261,7 +258,7 @@ linkupExerciseHandler("[data-click=aufgabe10]", aufgabe10)
 export function aufgabe11(args) {
   const input = args
 
-  //erstelle ein Variable um den ASCII-Code zu speichern.
+  //Erstelle ein Variable um den ASCII-Code zu speichern.
   let asciiCode = 0
 
   // Speichere den ASCII-Code vom ersten Zeichen
@@ -326,7 +323,7 @@ export function aufgabe14(args) {
       return i
     }
   }
-  return -1 //gibt -1 an, wenn dort weniger als 3 e's sind
+  return -1 //Gibt -1 an, wenn dort weniger als 3 e's sind
 }
 linkupExerciseHandler("[data-click=aufgabe14]", aufgabe14)
 
@@ -728,6 +725,7 @@ export function aufgabe35(args) {
     const currentElement = input[i]
 
     if (currentElement === "i") {
+      //Alle zeichen bis zum ersten i mit Apple ersetzten
       foundk = true
     }
 
@@ -767,12 +765,10 @@ export function Selectionsort(args) {
   const result = []
   let n = input.length
   for (let i = 0; i < n - 1; i++) {
-    // Assume the current position holds
-    // the minimum element
+    // Assume the current position holds the minimum element
     let min_idx = i
 
-    // Iterate through the unsorted portion
-    // to find the actual minimum
+    // Iterate through the unsorted portion to find the actual minimum
     for (let j = i + 1; j < n; j++) {
       if (input[j] < input[min_idx]) {
         // Update min_idx if a smaller element is found
@@ -780,8 +776,7 @@ export function Selectionsort(args) {
       }
     }
 
-    // Move minimum element to its
-    // correct position
+    // Move minimum element to its correct position
     let temp = input[i]
     input[i] = input[min_idx]
     input[min_idx] = temp
@@ -790,4 +785,25 @@ export function Selectionsort(args) {
 }
 linkupExerciseHandler("[data-click=Selectionsort]", Selectionsort)
 
-linkupExerciseHandler('[data-click="radixSort"]', radixSort)
+export function Countingsort(args) {
+  const input = args
+  const Lookup = new Array(128) // Erstelle (zähle durch) eine Liste mit den 128 Werten der ASCII- Liste
+  Lookup.fill(0) // Anfang der Zählung bei 0
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    const ascii = currentElement.charCodeAt(0) // Wir wiederholen das a soviel, wie wir es gezählt haben.
+    Lookup[ascii] += 1
+  }
+
+  const result = []
+
+  for (let i = 0; i < Lookup.length; i++) {
+    const value = Lookup[i]
+    for (let j = 0; j < value; j++) {
+      const character = String.fromCharCode(i)
+      result.push(character) // Wiedergeben
+    }
+  }
+  return result.join("")
+}
+linkupExerciseHandler("[data-click=Countingsort]", Countingsort)
